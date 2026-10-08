@@ -30,7 +30,7 @@ Links diretos: `?lang=pt`, `?lang=en`, `?lang=es`.
 ## Publicar no GitHub Pages
 
 1. No repositório, vá em **Settings → Pages**.
-2. Em **Source**, escolha **Deploy from a branch**, branch `main`, pasta `/ (root)`, e salve.
+2. Em **Source**, escolha **Deploy from a branch**, branch `portfolio`, pasta `/ (root)`, e salve.
 3. Em 1–2 minutos o site fica em `https://carolvieiraa.github.io/carolinevieira/`.
 
 ## Rodar localmente

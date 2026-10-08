@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Caroline Vieira — Business Designer | IA • Dados • Estratégia</title>
+  <meta name="description" content="Portfólio de Caroline Vieira, Business & Service Designer. Pesquisa, dados e design para transformar problemas complexos em estratégias e resultados de negócio.">
+  <meta name="theme-color" content="#0b0b0c">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Caroline Vieira — Business Designer">
+  <meta property="og:description" content="IA • Dados • Estratégia. Pesquisa, dados e design para transformar problemas complexos em resultados de negócio.">
+  <meta property="og:image" content="assets/img/og-image.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+  <a class="skip" href="#main">Pular para o conteúdo</a>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <div class="cursor" aria-hidden="true"></div>
+
+  <!-- Navegação -->
+  <header class="nav" id="nav">
+    <a href="#top" class="nav__logo" aria-label="Caroline Vieira">C<em>V</em></a>
+    <nav class="nav__links" id="navLinks" aria-label="Principal">
+      <a href="#sobre" data-i18n="nav.about">Sobre</a>
+      <a href="#habilidades" data-i18n="nav.skills">Habilidades</a>
+      <a href="#processo" data-i18n="nav.process">Processo</a>
+      <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a href="#contato" data-i18n="nav.contact">Contato</a>
+    </nav>
+    <div class="nav__right">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+        <span class="lang__pill" aria-hidden="true"></span>
+      </div>
+      <a class="btn btn--sand btn--sm nav__cv" data-link="cv" target="_blank" rel="noopener" data-i18n="nav.cv">Acessar CV</a>
+      <button class="nav__burger" id="burger" type="button" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span class="sr" data-i18n="nav.menu">Menu</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div class="hero__glow" aria-hidden="true"></div>
+      <div class="container hero__grid">
+        <div class="hero__text">
+          <p class="hero__role reveal">
+            <span class="bracket" data-i18n="hero.role1">Business Designer</span>
+            <span class="hero__role-sub" data-i18n="hero.role2">IA • Dados • Estratégia</span>
+          </p>
+          <h1 class="hero__name" aria-label="Caroline Vieira">
+            <span class="hero__first" data-split>Caroline</span>
+            <span class="hero__last" data-split>Vieira</span>
+          </h1>
+          <p class="hero__tagline reveal" data-i18n-html="hero.tagline">Uso pesquisa, dados e design para transformar <strong>problemas complexos em estratégias</strong> e resultados de negócio, potencializando decisões por meio da IA.</p>
+          <div class="hero__ctas reveal">
+            <a href="#projetos" class="btn btn--sand magnetic"><span data-i18n="hero.ctaProjects">Ver projetos</span> <i class="arrow">↓</i></a>
+            <a href="#contato" class="btn btn--ghost magnetic"><span data-i18n="hero.ctaContact">Vamos conversar</span> <i class="arrow">→</i></a>
+          </div>
+        </div>
+        <figure class="hero__photo reveal" id="tilt">
+          <div class="hero__photo-inner">
+            <img src="assets/img/caroline.jpg" alt="Caroline Vieira" width="1024" height="1024" fetchpriority="high">
+          </div>
+          <figcaption class="hero__badge">
+            <span class="dot"></span><span data-i18n="hero.location">Brasil · disponível para projetos remotos</span>
+          </figcaption>
+        </figure>
+      </div>
+      <a href="#sobre" class="hero__scroll" aria-hidden="true" tabindex="-1"><span data-i18n="hero.scroll">Role para explorar</span><i></i></a>
+    </section>
+
+    <!-- Logos -->
+    <section class="clients" aria-labelledby="clientsTitle">
+      <p class="eyebrow eyebrow--center" id="clientsTitle" data-i18n="clients.title">Empresas que confiam no meu trabalho</p>
+      <div class="marquee">
+        <div class="marquee__track" id="logos"></div>
+      </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="section about" id="sobre">
+      <div class="container about__grid">
+        <div>
+          <p class="eyebrow reveal" data-i18n="about.eyebrow">Sobre mim</p>
+          <h2 class="display reveal" data-i18n-html="about.title">Boas decisões nascem da <em>escuta genuína</em> e de evidências.</h2>
+        </div>
+        <div class="about__body">
+          <p class="lead reveal" data-i18n="about.p1"></p>
+          <p class="reveal" data-i18n="about.p2"></p>
+          <span class="chip chip--outline reveal" data-i18n="about.badge">MBA Big Data · ESPM</span>
+        </div>
+      </div>
+
+      <div class="container impact">
+        <div class="impact__head">
+          <p class="eyebrow reveal" data-i18n="impact.eyebrow">Impacto gerado</p>
+          <h3 class="h3 reveal" data-i18n="impact.title">Resultados que vão além da entrega.</h3>
+        </div>
+        <div class="impact__grid" id="impactGrid"></div>
+      </div>
+    </section>
+
+    <!-- Habilidades -->
+    <section class="section skills" id="habilidades">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal" data-i18n="skills.eyebrow">Habilidades</p>
+          <h2 class="display reveal" data-i18n-html="skills.title">O que eu faço, <em>e por quê</em>.</h2>
+          <p class="section__lead reveal" data-i18n="skills.lead"></p>
+        </div>
+        <div class="skills__grid" id="skillsGrid"></div>
+      </div>
+    </section>
+
+    <!-- Processo -->
+    <section class="section process" id="processo">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal" data-i18n="process.eyebrow">Processo</p>
+          <h2 class="display reveal" data-i18n-html="process.title">Da investigação <em>à entrega</em>.</h2>
+          <p class="section__lead reveal" data-i18n="process.lead"></p>
+        </div>
+
+        <div class="flow reveal" id="flow">
+          <div class="flow__streams" aria-hidden="true">
+            <span class="flow__stream" data-i18n="process.upstream">Upstream</span>
+            <span class="flow__risk"><i></i><b data-i18n="process.derisking">De-risking</b><i></i></span>
+            <span class="flow__stream" data-i18n="process.downstream">Downstream</span>
+          </div>
+          <div class="flow__track">
+            <div class="flow__line" aria-hidden="true"><span id="flowFill"></span></div>
+            <div class="flow__steps" id="flowSteps" role="tablist"></div>
+          </div>
+          <div class="flow__panel" id="flowPanel" role="tabpanel" aria-live="polite"></div>
+        </div>
+
+        <p class="process__role reveal" data-i18n="process.role"></p>
+      </div>
+    </section>
+
+    <!-- Projetos -->
+    <section class="section projects" id="projetos">
+      <div class="container">
+        <div class="section__head">
+          <p class="eyebrow reveal" data-i18n="projects.eyebrow">Projetos estratégicos</p>
+          <h2 class="display reveal" data-i18n-html="projects.title">Cases <em>selecionados</em>.</h2>
+        </div>
+        <div id="projectsList"></div>
+      </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="section testimonials" id="depoimentos">
+      <div class="container">
+        <div class="section__head section__head--row">
+          <div>
+            <p class="eyebrow reveal" data-i18n="testimonials.eyebrow">Reconhecimento profissional</p>
+            <h2 class="display reveal" data-i18n-html="testimonials.title">Quem trabalhou comigo <em>diz</em>.</h2>
+            <p class="section__lead reveal" data-i18n="testimonials.lead"></p>
+          </div>
+          <div class="slider-ctrl reveal">
+            <button type="button" class="circle-btn" id="tPrev" data-i18n-aria="testimonials.prev">←</button>
+            <button type="button" class="circle-btn" id="tNext" data-i18n-aria="testimonials.next">→</button>
+          </div>
+        </div>
+      </div>
+      <div class="tslider" id="tSlider" tabindex="0"></div>
+    </section>
+
+    <!-- Contato -->
+    <section class="section contact" id="contato">
+      <div class="container contact__inner">
+        <p class="eyebrow eyebrow--center reveal" data-i18n="contact.eyebrow">Contato</p>
+        <h2 class="contact__title reveal" data-i18n-html="contact.title">Vamos <em>conversar</em>?</h2>
+        <p class="contact__lead reveal" data-i18n="contact.lead"></p>
+        <a class="btn btn--sand btn--lg magnetic reveal" data-link="whatsapp" target="_blank" rel="noopener"><span data-i18n="contact.schedule">Agendar uma conversa</span> <i class="arrow">→</i></a>
+        <div class="contact__links reveal">
+          <a data-link="email" class="contact__link"><span data-i18n="contact.email">E-mail</span><i class="arrow">↗</i></a>
+          <a data-link="linkedin" target="_blank" rel="noopener" class="contact__link"><span data-i18n="contact.linkedin">LinkedIn</span><i class="arrow">↗</i></a>
+          <a data-link="cv" target="_blank" rel="noopener" class="contact__link"><span data-i18n="contact.cv">Currículo</span><i class="arrow">↗</i></a>
+        </div>
+        <button type="button" class="copy reveal" id="copyEmail"><span id="copyLabel" data-i18n="contact.copy">Copiar e-mail</span> · <span class="copy__addr"></span></button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__inner">
+      <p>© <span id="year">2026</span> Caroline Vieira</p>
+      <p class="footer__line" data-i18n="footer.line"></p>
+      <a href="#top" data-i18n="footer.top">Voltar ao topo</a>
+    </div>
+  </footer>
+
+  <script src="assets/js/i18n.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

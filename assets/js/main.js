@@ -2,8 +2,8 @@
   "use strict";
 
   const LINKS = {
-    email: "mailto:ana.csvieira@outlook.com",
-    emailAddress: "ana.csvieira@outlook.com",
+    email: "mailto:ana-vieira@live.com",
+    emailAddress: "ana-vieira@live.com",
     linkedin: "https://www.linkedin.com/in/carolineevieiraaa/",
     cv: "cv.html",
     whatsapp: "https://wa.me/5519999928343"

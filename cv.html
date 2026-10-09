@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Currículo — Caroline Vieira</title>
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/cv.css">
+</head>
+<body>
+  <header class="bar">
+    <a class="bar__back" id="back" href="index.html"><span aria-hidden="true">←</span> <span id="backLabel">Voltar ao portfólio</span></a>
+    <div class="bar__right">
+      <div class="lang" role="group" aria-label="Idioma / Language">
+        <button type="button" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" data-lang="en" aria-pressed="false">EN</button>
+        <button type="button" data-lang="es" aria-pressed="false">ES</button>
+      </div>
+      <button type="button" class="btn" id="print" title=""><span id="printLabel">Baixar PDF</span> <span aria-hidden="true">↓</span></button>
+    </div>
+  </header>
+
+  <main class="sheet" id="cv"></main>
+
+  <script src="assets/js/cv-data.js"></script>
+  <script>
+  (function () {
+    "use strict";
+    const LINKS = {
+      email: "ana.csvieira@outlook.com",
+      phone: "+55 (19) 99992-8343",
+      phoneHref: "https://wa.me/5519999928343",
+      linkedin: "https://www.linkedin.com/in/carolineevieiraaa/",
+      linkedinLabel: "linkedin.com/in/carolineevieiraaa"
+    };
+    const HTML_LANG = { pt: "pt-BR", en: "en", es: "es" };
+    const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    const li = (items) => items.map((x) => `<li>${esc(x)}</li>`).join("");
+
+    function storageGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function storageSet(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* sem storage */ } }
+
+    function initialLang() {
+      const param = new URLSearchParams(location.search).get("lang");
+      if (param && CV[param]) return param;
+      const saved = storageGet("lang");
+      if (saved && CV[saved]) return saved;
+      const nav = (navigator.language || "pt").slice(0, 2).toLowerCase();
+      return CV[nav] ? nav : "pt";
+    }
+
+    function render(lang, initial) {
+      const c = CV[lang];
+      document.documentElement.lang = HTML_LANG[lang];
+      document.title = c.meta.title;
+      document.getElementById("backLabel").textContent = c.ui.back;
+      document.getElementById("back").href = "index.html?lang=" + lang;
+      document.getElementById("printLabel").textContent = c.ui.download;
+      document.getElementById("print").title = c.ui.hint;
+      document.querySelectorAll(".lang button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+
+      const jobs = c.experience.jobs.map((j) => `
+        <article class="job">
+          <header class="job__head">
+            <h3><b>${esc(j.org)}</b> — ${esc(j.role)}</h3>
+            <p>${esc(j.period)} · ${esc(j.place)}</p>
+          </header>
+          <ul class="bullets">${li(j.bullets)}</ul>
+          ${j.projects.length ? `
+            <p class="job__sub">${esc(c.experience.projectsTitle)}</p>
+            <ul class="bullets bullets--projects">${j.projects.map(([k, v]) => `<li><b>${esc(k)}</b> — ${esc(v)}</li>`).join("")}</ul>` : ""}
+        </article>`).join("");
+
+      document.getElementById("cv").innerHTML = `
+        <aside class="side">
+          <div class="side__mark" aria-hidden="true">c<em>V</em></div>
+          <section>
+            <h2>${esc(c.contact.title)}</h2>
+            <ul class="plain">
+              <li>${esc(c.contact.location)}</li>
+              <li class="muted">${esc(c.contact.note)}</li>
+              <li><a href="${LINKS.phoneHref}" target="_blank" rel="noopener">${esc(LINKS.phone)}</a></li>
+              <li><a href="mailto:${LINKS.email}">${esc(LINKS.email)}</a></li>
+              <li><a href="${LINKS.linkedin}" target="_blank" rel="noopener">LinkedIn</a> · <a href="index.html?lang=${lang}">${esc(c.contact.portfolio)}</a></li>
+            </ul>
+          </section>
+          <section>
+            <h2>${esc(c.languages.title)}</h2>
+            <ul class="plain">${li(c.languages.items)}</ul>
+          </section>
+          <section>
+            <h2>${esc(c.expertise.title)}</h2>
+            <ul class="tags">${li(c.expertise.items)}</ul>
+          </section>
+          <section>
+            <h2>${esc(c.objective.title)}</h2>
+            <p>${esc(c.objective.text)}</p>
+          </section>
+        </aside>
+        <div class="main">
+          <header class="hero">
+            <h1>${esc(c.name.split(" ")[0])} <em>${esc(c.name.split(" ").slice(1).join(" "))}</em></h1>
+            <p>${esc(c.headline)}</p>
+          </header>
+          <section>
+            <h2>${esc(c.profile.title)}</h2>
+            <p class="lead">${esc(c.profile.text)}</p>
+          </section>
+          <section>
+            <h2>${esc(c.experience.title)}</h2>
+            ${jobs}
+          </section>
+          <section class="two">
+            <div>
+              <h2>${esc(c.education.title)}</h2>
+              <ul class="edu">${c.education.items.map(([k, v]) => `<li><span>${esc(k)}</span><small>${esc(v)}</small></li>`).join("")}</ul>
+            </div>
+            <div>
+              <h2>${esc(c.certifications.title)}</h2>
+              <ul class="plain plain--dots">${li(c.certifications.items)}</ul>
+            </div>
+          </section>
+        </div>`;
+
+      if (!initial) {
+        storageSet("lang", lang);
+        const url = new URL(location.href);
+        url.searchParams.set("lang", lang);
+        history.replaceState(null, "", url);
+      }
+    }
+
+    document.querySelectorAll(".lang button").forEach((b) => b.addEventListener("click", () => render(b.dataset.lang)));
+    document.getElementById("print").addEventListener("click", () => window.print());
+    render(initialLang(), true);
+  })();
+  </script>
+</body>
+</html>

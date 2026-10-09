@@ -8,6 +8,8 @@ Site estático (HTML, CSS e JavaScript puros), sem etapa de build: funciona dire
 
 ```
 index.html            estrutura da página
+cv.html               currículo embutido (3 idiomas, botão "Baixar PDF" via impressão)
+assets/js/cv-data.js  textos do currículo, nos 3 idiomas
 assets/js/i18n.js     TODOS os textos, nos 3 idiomas (pt, en, es)
 assets/js/main.js     interações, troca de idioma e links (e-mail, LinkedIn, CV, WhatsApp, cases)
 assets/css/style.css  visual (cores no topo do arquivo, em :root)

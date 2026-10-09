@@ -6,7 +6,7 @@ window.I18N = {
       title: "Caroline Vieira — Business Designer | IA • Dados • Estratégia",
       description: "Portfólio de Caroline Vieira, Business & Service Designer. Pesquisa, dados e design para transformar problemas complexos em estratégias e resultados de negócio."
     },
-    nav: { about: "Sobre", skills: "Habilidades", process: "Processo", projects: "Projetos", contact: "Contato", cv: "Acessar CV", menu: "Menu" },
+    nav: { about: "Sobre", skills: "Habilidades", process: "Processo", projects: "Projetos", testimonials: "Reconhecimento", contact: "Contato", cv: "Acessar CV", menu: "Menu" },
     hero: {
       role1: "Business Designer",
       role2: "IA • Dados • Estratégia",
@@ -52,6 +52,7 @@ window.I18N = {
       eyebrow: "Processo",
       title: "Da investigação <em>à entrega</em>.",
       lead: "Transformando dores complexas em soluções de produto eficientes, seguras e orientadas a dados.",
+      roleEyebrow: "Meu papel",
       role: "Atuo na intersecção entre Business Design, Service Design (CX/EX) e Engenharia de Soluções. Meu papel é guiar frentes de imersão e discovery contínuo para mitigar riscos, alinhar stakeholders e desenhar arquiteturas operacionais que traduzam visões de negócio em resultados financeiros e eficiência real.",
       upstream: "Upstream",
       downstream: "Downstream",
@@ -66,7 +67,7 @@ window.I18N = {
     projects: {
       eyebrow: "Projetos estratégicos",
       title: "Cases <em>selecionados</em>.",
-      labels: { challenge: "O desafio", contributed: "Como contribuí", how: "Como fiz", results: "Resultados", viewCase: "Ver case completo", note: "Dashboard interativo do case (em português)" },
+      labels: { challenge: "O desafio", contributed: "Como contribuí", how: "Como fiz", results: "Resultados", viewCase: "Ver case completo", note: "Dashboard interativo do case (em português)", videoNote: "" },
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Varejo farma",
@@ -76,7 +77,7 @@ window.I18N = {
           stats: [["+14 mil", "avaliações analisadas"], ["32", "entrevistas com stakeholders"], ["23", "marcas no benchmarking"]],
           contributed: ["Business Design", "Futurismo (Future Thinking)", "Análise orientada a dados", "Estratégia omnichannel", "Redução de riscos (De-risking)"],
           how: ["Análise de +14 mil avaliações de usuários e 32 entrevistas com stakeholders", "Benchmarking de 23 marcas (diretas e indiretas)", "Definição de 3 Horizontes de Inovação (H1, H2 e H3)", "Mapeamento de +70 funcionalidades prioritárias", "Workshop de cocriação com lideranças estratégicas"],
-          results: ["Identificação de perdas financeiras por falhas técnicas de API (mitigação de risco).", "Roadmap estratégico conectado a OKRs de conversão e retenção."]
+          results: ["Causa raiz técnica (falhas de API) de R$ 480 mil em perdas identificada e priorizada.", "Dashboard adotado como referência interna pela operação do cliente.", "Roadmap estratégico conectado a OKRs de conversão e retenção."]
         },
         {
           id: "novo-nordisk", client: "Novo Nordisk", year: "Saúde",
@@ -86,7 +87,7 @@ window.I18N = {
           stats: [["66%", "acima da meta de identificação"], ["7", "entrevistas em profundidade"], ["+15", "fontes de desk research"]],
           contributed: ["Business Discovery", "Pesquisa qualitativa e quantitativa", "Service Design", "Estratégia comercial", "Governança de indicadores"],
           how: ["7 entrevistas em profundidade", "+15 fontes de desk research", "Service Blueprint (front e backstage)", "Roadmap de ondas de priorização", "Dashboards estratégicos e segmentação", "Criação de cenários de implementação interativos"],
-          results: ["66% acima da meta na identificação de pacientes (5 diagnósticos vs. meta de 3).", "R$ 30 mil de receita adicional gerada para a consultoria através do projeto."]
+          results: ["66% acima da meta na identificação de pacientes (5 diagnósticos vs. meta de 3).", "R$ 33 mil de receita adicional gerada para a consultoria através do projeto."]
         },
         {
           id: "jll", client: "JLL", year: "Real estate · LATAM",
@@ -109,7 +110,8 @@ window.I18N = {
         { name: "Juliana Amorim", role: "Head de Design", company: "Performa IT", quote: "Uma profissional organizada, dedicada e sempre à frente na adoção de novas tecnologias como IA." },
         { name: "Marcy Reinert", role: "Tech Lead", company: "Performa IT", quote: "Entrega com visão estratégica, domínio técnico e espírito de liderança." },
         { name: "Rodrigo Cheida", role: "Business Strategist", company: "Compass UOL", quote: "A Carol é uma Service Designer nata, com visão estratégica de negócio e excelente capacidade de consolidar insights." },
-        { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Comprometida, ética e excelente em pesquisas centradas no usuário, sempre buscando aprofundar o entendimento dos problemas." }
+        { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Comprometida, ética e excelente em pesquisas centradas no usuário, sempre buscando aprofundar o entendimento dos problemas." },
+        { name: "Camila Falabella", role: "", company: "", quote: "Fiquei impressionada com a Carol: ela mapeia jornadas complexas a partir dos primeiros dados, ainda superficiais, e sabe exatamente como proceder e quais ferramentas e métodos usar conforme a necessidade de cada projeto." }
       ]
     },
     contact: {
@@ -128,7 +130,7 @@ window.I18N = {
       title: "Caroline Vieira — Business Designer | AI • Data • Strategy",
       description: "Portfolio of Caroline Vieira, Business & Service Designer. Research, data and design to turn complex problems into strategies and business results."
     },
-    nav: { about: "About", skills: "Skills", process: "Process", projects: "Projects", contact: "Contact", cv: "View resume", menu: "Menu" },
+    nav: { about: "About", skills: "Skills", process: "Process", projects: "Projects", testimonials: "Recognition", contact: "Contact", cv: "View resume", menu: "Menu" },
     hero: {
       role1: "Business Designer",
       role2: "AI • Data • Strategy",
@@ -174,6 +176,7 @@ window.I18N = {
       eyebrow: "Process",
       title: "From investigation <em>to delivery</em>.",
       lead: "Turning complex pain points into efficient, safe and data-driven product solutions.",
+      roleEyebrow: "My role",
       role: "I work at the intersection of Business Design, Service Design (CX/EX) and Solutions Engineering. My role is to lead immersion and continuous discovery efforts to mitigate risk, align stakeholders and design operating architectures that translate business visions into financial results and real efficiency.",
       upstream: "Upstream",
       downstream: "Downstream",
@@ -188,7 +191,7 @@ window.I18N = {
     projects: {
       eyebrow: "Strategic projects",
       title: "Selected <em>cases</em>.",
-      labels: { challenge: "The challenge", contributed: "My contribution", how: "How I did it", results: "Results", viewCase: "View full case", note: "Interactive case dashboard (in Portuguese)" },
+      labels: { challenge: "The challenge", contributed: "My contribution", how: "How I did it", results: "Results", viewCase: "View full case", note: "Interactive case dashboard (in Portuguese)", videoNote: "Original interface in Portuguese" },
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Pharma retail",
@@ -198,7 +201,7 @@ window.I18N = {
           stats: [["14K+", "reviews analyzed"], ["32", "stakeholder interviews"], ["23", "brands benchmarked"]],
           contributed: ["Business Design", "Future Thinking", "Data-driven analysis", "Omnichannel strategy", "Risk reduction (de-risking)"],
           how: ["Analysis of 14K+ user reviews and 32 stakeholder interviews", "Benchmarking of 23 brands (direct and indirect)", "Definition of 3 Horizons of Innovation (H1, H2 and H3)", "Mapping of 70+ priority features", "Co-creation workshop with strategic leadership"],
-          results: ["Identified financial losses caused by technical API failures (risk mitigation).", "Strategic roadmap tied to conversion and retention OKRs."]
+          results: ["Technical root cause (API failures) behind R$ 480K in losses identified and prioritized.", "Dashboard adopted as an internal reference by the client's operations.", "Strategic roadmap tied to conversion and retention OKRs."]
         },
         {
           id: "novo-nordisk", client: "Novo Nordisk", year: "Healthcare",
@@ -208,7 +211,7 @@ window.I18N = {
           stats: [["66%", "above the identification target"], ["7", "in-depth interviews"], ["15+", "desk research sources"]],
           contributed: ["Business Discovery", "Qualitative and quantitative research", "Service Design", "Commercial strategy", "KPI governance"],
           how: ["7 in-depth interviews", "15+ desk research sources", "Service Blueprint (front and backstage)", "Roadmap of prioritization waves", "Strategic dashboards and segmentation", "Interactive implementation scenarios"],
-          results: ["66% above target in patient identification (5 diagnoses vs. a target of 3).", "R$ 30K in additional revenue generated for the consultancy through the project."]
+          results: ["66% above target in patient identification (5 diagnoses vs. a target of 3).", "R$ 33K in additional revenue generated for the consultancy through the project."]
         },
         {
           id: "jll", client: "JLL", year: "Real estate · LATAM",
@@ -231,7 +234,8 @@ window.I18N = {
         { name: "Juliana Amorim", role: "Head of Design", company: "Performa IT", quote: "An organized, dedicated professional who is always ahead in adopting new technologies such as AI." },
         { name: "Marcy Reinert", role: "Tech Lead", company: "Performa IT", quote: "She delivers with strategic vision, technical mastery and a true leadership spirit." },
         { name: "Rodrigo Cheida", role: "Business Strategist", company: "Compass UOL", quote: "Carol is a natural-born Service Designer, with a strategic business vision and an excellent ability to consolidate insights." },
-        { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Committed, ethical and excellent at user-centered research, always looking to deepen the understanding of problems." }
+        { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Committed, ethical and excellent at user-centered research, always looking to deepen the understanding of problems." },
+        { name: "Camila Falabella", role: "", company: "", quote: "Carol impressed me: she maps complex journeys from the very first, still superficial data, and knows exactly how to proceed and which tools and methods to use for each project's needs." }
       ]
     },
     contact: {
@@ -250,7 +254,7 @@ window.I18N = {
       title: "Caroline Vieira — Business Designer | IA • Datos • Estrategia",
       description: "Portafolio de Caroline Vieira, Business & Service Designer. Investigación, datos y diseño para transformar problemas complejos en estrategias y resultados de negocio."
     },
-    nav: { about: "Sobre mí", skills: "Habilidades", process: "Proceso", projects: "Proyectos", contact: "Contacto", cv: "Ver CV", menu: "Menú" },
+    nav: { about: "Sobre mí", skills: "Habilidades", process: "Proceso", projects: "Proyectos", testimonials: "Reconocimiento", contact: "Contacto", cv: "Ver CV", menu: "Menú" },
     hero: {
       role1: "Business Designer",
       role2: "IA • Datos • Estrategia",
@@ -296,6 +300,7 @@ window.I18N = {
       eyebrow: "Proceso",
       title: "De la investigación <em>a la entrega</em>.",
       lead: "Transformando dolores complejos en soluciones de producto eficientes, seguras y orientadas a datos.",
+      roleEyebrow: "Mi rol",
       role: "Trabajo en la intersección entre Business Design, Service Design (CX/EX) e Ingeniería de Soluciones. Mi rol es guiar frentes de inmersión y discovery continuo para mitigar riesgos, alinear stakeholders y diseñar arquitecturas operativas que traduzcan visiones de negocio en resultados financieros y eficiencia real.",
       upstream: "Upstream",
       downstream: "Downstream",
@@ -310,7 +315,7 @@ window.I18N = {
     projects: {
       eyebrow: "Proyectos estratégicos",
       title: "Casos <em>seleccionados</em>.",
-      labels: { challenge: "El desafío", contributed: "Cómo contribuí", how: "Cómo lo hice", results: "Resultados", viewCase: "Ver caso completo", note: "Dashboard interactivo del caso (en portugués)" },
+      labels: { challenge: "El desafío", contributed: "Cómo contribuí", how: "Cómo lo hice", results: "Resultados", viewCase: "Ver caso completo", note: "Dashboard interactivo del caso (en portugués)", videoNote: "Interfaz original en portugués" },
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Retail farmacéutico",
@@ -320,7 +325,7 @@ window.I18N = {
           stats: [["+14 mil", "reseñas analizadas"], ["32", "entrevistas con stakeholders"], ["23", "marcas en el benchmarking"]],
           contributed: ["Business Design", "Futurismo (Future Thinking)", "Análisis orientado a datos", "Estrategia omnicanal", "Reducción de riesgos (de-risking)"],
           how: ["Análisis de +14 mil reseñas de usuarios y 32 entrevistas con stakeholders", "Benchmarking de 23 marcas (directas e indirectas)", "Definición de 3 Horizontes de Innovación (H1, H2 y H3)", "Mapeo de +70 funcionalidades prioritarias", "Workshop de cocreación con el liderazgo estratégico"],
-          results: ["Identificación de pérdidas financieras por fallas técnicas de API (mitigación de riesgos).", "Roadmap estratégico conectado a OKRs de conversión y retención."]
+          results: ["Causa raíz técnica (fallas de API) de R$ 480 mil en pérdidas identificada y priorizada.", "Dashboard adoptado como referencia interna por la operación del cliente.", "Roadmap estratégico conectado a OKRs de conversión y retención."]
         },
         {
           id: "novo-nordisk", client: "Novo Nordisk", year: "Salud",
@@ -330,7 +335,7 @@ window.I18N = {
           stats: [["66%", "por encima de la meta de identificación"], ["7", "entrevistas en profundidad"], ["+15", "fuentes de desk research"]],
           contributed: ["Business Discovery", "Investigación cualitativa y cuantitativa", "Service Design", "Estrategia comercial", "Gobernanza de indicadores"],
           how: ["7 entrevistas en profundidad", "+15 fuentes de desk research", "Service Blueprint (front y backstage)", "Roadmap de olas de priorización", "Dashboards estratégicos y segmentación", "Escenarios de implementación interactivos"],
-          results: ["66% por encima de la meta en la identificación de pacientes (5 diagnósticos vs. una meta de 3).", "R$ 30 mil de ingresos adicionales generados para la consultora a través del proyecto."]
+          results: ["66% por encima de la meta en la identificación de pacientes (5 diagnósticos vs. una meta de 3).", "R$ 33 mil de ingresos adicionales generados para la consultora a través del proyecto."]
         },
         {
           id: "jll", client: "JLL", year: "Real estate · LATAM",
@@ -353,7 +358,8 @@ window.I18N = {
         { name: "Juliana Amorim", role: "Head de Diseño", company: "Performa IT", quote: "Una profesional organizada, dedicada y siempre a la vanguardia en la adopción de nuevas tecnologías como la IA." },
         { name: "Marcy Reinert", role: "Tech Lead", company: "Performa IT", quote: "Entrega con visión estratégica, dominio técnico y espíritu de liderazgo." },
         { name: "Rodrigo Cheida", role: "Business Strategist", company: "Compass UOL", quote: "Carol es una Service Designer nata, con visión estratégica de negocio y una excelente capacidad para consolidar insights." },
-        { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Comprometida, ética y excelente en investigaciones centradas en el usuario, siempre buscando profundizar la comprensión de los problemas." }
+        { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Comprometida, ética y excelente en investigaciones centradas en el usuario, siempre buscando profundizar la comprensión de los problemas." },
+        { name: "Camila Falabella", role: "", company: "", quote: "Carol me impresionó: mapea recorridos complejos a partir de los primeros datos, aún superficiales, y sabe exactamente cómo proceder y qué herramientas y métodos usar según la necesidad de cada proyecto." }
       ]
     },
     contact: {

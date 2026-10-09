@@ -5,13 +5,20 @@
     email: "mailto:ana.csvieira@outlook.com",
     emailAddress: "ana.csvieira@outlook.com",
     linkedin: "https://www.linkedin.com/in/carolineevieiraaa/",
-    cv: "https://1drv.ms/b/c/68c35f488691deac/IQCXk7P2J-afR7hk23wuxg3MAYyZUOZlu7uIKuPSSurPWqM?e=4GfBTT",
+    cv: "cv.html",
     whatsapp: "https://wa.me/5519999928343"
   };
   const CASE_URLS = {
     "pague-menos": "https://admirable-manatee-677cab.netlify.app",
     "novo-nordisk": "https://snazzy-druid-5ad5f8.netlify.app",
     "jll": "https://heartfelt-sherbet-262976.netlify.app"
+  };
+  // Vídeos gravados em outros idiomas: salve como assets/video/<id>.<idioma>.mp4
+  // (ex.: pague-menos.en.mp4) e liste o idioma aqui. Sem versão, usa o vídeo em português.
+  const VIDEO_LANGS = {
+    "pague-menos": [],
+    "novo-nordisk": [],
+    "jll": []
   };
   const LOGOS = [
     ["senac", "Senac"], ["novo-nordisk", "Novo Nordisk"], ["pague-menos", "Pague Menos"],
@@ -55,6 +62,7 @@
     $$("[data-i18n-aria]").forEach((el) => { const v = get(t, el.dataset.i18nAria); if (v != null) el.setAttribute("aria-label", v); });
 
     $$(".lang button").forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.lang === lang)));
+    $$('[data-link="cv"]').forEach((a) => { a.href = LINKS.cv + "?lang=" + lang; });
     movePill();
 
     renderImpact();
@@ -100,11 +108,8 @@
 
   function renderSkills() {
     $("#skillsGrid").innerHTML = t.skills.items.map((s, i) => `
-      <article class="skill reveal" style="--d:${(i % 3) * 90}ms" tabindex="0">
-        <div class="skill__top">
-          <span class="skill__num">0${i + 1}</span>
-          <span class="skill__plus" aria-hidden="true"></span>
-        </div>
+      <article class="skill reveal" style="--d:${(i % 3) * 90}ms">
+        <div class="skill__top"><span class="skill__num">0${i + 1}</span></div>
         <h3 class="skill__title">${esc(s.title)}</h3>
         <p class="skill__statement">${esc(s.statement)}</p>
         <ul class="skill__tags">${s.tags.map((tag) => `<li>${esc(tag)}</li>`).join("")}</ul>
@@ -143,11 +148,13 @@
   function renderProjects() {
     const L = t.projects.labels;
     videoObserver.disconnect();
+    const ownVideo = (id) => (VIDEO_LANGS[id] || []).includes(lang);
     $("#projectsList").innerHTML = t.projects.items.map((p, i) => `
       <article class="case reveal" id="case-${p.id}">
         <div class="case__media">
           <div class="phone">
-            <video src="assets/video/${p.id}.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            <video src="assets/video/${ownVideo(p.id) ? `${p.id}.${lang}` : p.id}.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
+            ${L.videoNote && !ownVideo(p.id) ? `<span class="phone__note">${esc(L.videoNote)}</span>` : ""}
           </div>
           <span class="case__index">0${i + 1}</span>
         </div>
@@ -186,7 +193,7 @@
         <blockquote>${esc(q.quote)}</blockquote>
         <figcaption>
           <span class="quote__avatar" aria-hidden="true">${q.name.split(" ").map((n) => n[0]).slice(0, 2).join("")}</span>
-          <span><b>${esc(q.name)}</b><small>${esc(q.role)} · ${esc(q.company)}</small></span>
+          <span><b>${esc(q.name)}</b><small>${esc([q.role, q.company].filter(Boolean).join(" · "))}</small></span>
         </figcaption>
       </figure>`).join("")}</div>`;
   }
@@ -291,17 +298,13 @@
       $$("[data-panel]", c).forEach((p) => p.classList.toggle("is-active", p.dataset.panel === tab.dataset.tab));
     });
 
-    // Habilidades: spotlight segue o mouse; toque expande no mobile
+    // Habilidades: spotlight segue o mouse
     $("#skillsGrid").addEventListener("pointermove", (e) => {
       const card = e.target.closest(".skill");
       if (!card) return;
       const r = card.getBoundingClientRect();
       card.style.setProperty("--mx", e.clientX - r.left + "px");
       card.style.setProperty("--my", e.clientY - r.top + "px");
-    });
-    $("#skillsGrid").addEventListener("click", (e) => {
-      const card = e.target.closest(".skill");
-      if (card) card.classList.toggle("is-open");
     });
 
     // Depoimentos
@@ -335,7 +338,7 @@
         $$("#navLinks a").forEach((a) => a.classList.toggle("is-active", a.getAttribute("href") === "#" + e.target.id));
       });
     }, { rootMargin: "-45% 0px -50% 0px" });
-    ["sobre", "habilidades", "processo", "projetos", "contato"].forEach((id) => sectionObserver.observe(document.getElementById(id)));
+    ["sobre", "habilidades", "processo", "projetos", "depoimentos", "contato"].forEach((id) => sectionObserver.observe(document.getElementById(id)));
 
     if (finePointer && !reduceMotion) {
       initCursor();
@@ -367,7 +370,7 @@
     document.body.classList.add("has-cursor");
     window.addEventListener("pointermove", (e) => { x = e.clientX; y = e.clientY; }, { passive: true });
     document.addEventListener("pointerover", (e) => {
-      c.classList.toggle("is-hover", !!e.target.closest("a, button, .skill, [role=tab]"));
+      c.classList.toggle("is-hover", !!e.target.closest("a, button, [role=tab]"));
       c.classList.toggle("is-drag", !!e.target.closest(".tslider"));
     });
     const loop = () => {

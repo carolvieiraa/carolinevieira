@@ -11,7 +11,8 @@
   <meta property="og:description" content="IA • Dados • Estratégia. Pesquisa, dados e design para transformar problemas complexos em resultados de negócio.">
   <meta property="og:image" content="assets/img/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" href="assets/img/favicon.png">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="alternate icon" href="assets/img/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -30,6 +31,7 @@
       <a href="#habilidades" data-i18n="nav.skills">Habilidades</a>
       <a href="#processo" data-i18n="nav.process">Processo</a>
       <a href="#projetos" data-i18n="nav.projects">Projetos</a>
+      <a href="#depoimentos" data-i18n="nav.testimonials">Reconhecimento</a>
       <a href="#contato" data-i18n="nav.contact">Contato</a>
     </nav>
     <div class="nav__right">
@@ -39,7 +41,7 @@
         <button type="button" data-lang="es" aria-pressed="false">ES</button>
         <span class="lang__pill" aria-hidden="true"></span>
       </div>
-      <a class="btn btn--sand btn--sm nav__cv" data-link="cv" target="_blank" rel="noopener" data-i18n="nav.cv">Acessar CV</a>
+      <a class="btn btn--sand btn--sm nav__cv" data-link="cv" href="cv.html" data-i18n="nav.cv">Acessar CV</a>
       <button class="nav__burger" id="burger" type="button" aria-expanded="false" aria-controls="navLinks">
         <span></span><span></span><span class="sr" data-i18n="nav.menu">Menu</span>
       </button>
@@ -52,14 +54,17 @@
       <div class="hero__glow" aria-hidden="true"></div>
       <div class="container hero__grid">
         <div class="hero__text">
-          <p class="hero__role reveal">
-            <span class="bracket" data-i18n="hero.role1">Business Designer</span>
-            <span class="hero__role-sub" data-i18n="hero.role2">IA • Dados • Estratégia</span>
-          </p>
-          <h1 class="hero__name" aria-label="Caroline Vieira">
-            <span class="hero__first" data-split>Caroline</span>
-            <span class="hero__last" data-split>Vieira</span>
-          </h1>
+          <div class="hero__id">
+            <h1 class="hero__name" aria-label="Caroline Vieira">
+              <span class="hero__first" data-split>Caroline</span>
+              <span class="hero__last" data-split>Vieira</span>
+            </h1>
+            <p class="hero__role reveal">
+              <span class="hero__role-main" data-i18n="hero.role1">Business Designer</span>
+              <i class="hero__role-line" aria-hidden="true"></i>
+              <span class="hero__role-sub" data-i18n="hero.role2">IA • Dados • Estratégia</span>
+            </p>
+          </div>
           <p class="hero__tagline reveal" data-i18n-html="hero.tagline">Uso pesquisa, dados e design para transformar <strong>problemas complexos em estratégias</strong> e resultados de negócio, potencializando decisões por meio da IA.</p>
           <div class="hero__ctas reveal">
             <a href="#projetos" class="btn btn--sand magnetic"><span data-i18n="hero.ctaProjects">Ver projetos</span> <i class="arrow">↓</i></a>
@@ -143,7 +148,10 @@
           <div class="flow__panel" id="flowPanel" role="tabpanel" aria-live="polite"></div>
         </div>
 
-        <p class="process__role reveal" data-i18n="process.role"></p>
+        <div class="process__role reveal">
+          <p class="eyebrow eyebrow--center" data-i18n="process.roleEyebrow">Meu papel</p>
+          <p class="process__role-text" data-i18n="process.role"></p>
+        </div>
       </div>
     </section>
 
@@ -186,7 +194,7 @@
         <div class="contact__links reveal">
           <a data-link="email" class="contact__link"><span data-i18n="contact.email">E-mail</span><i class="arrow">↗</i></a>
           <a data-link="linkedin" target="_blank" rel="noopener" class="contact__link"><span data-i18n="contact.linkedin">LinkedIn</span><i class="arrow">↗</i></a>
-          <a data-link="cv" target="_blank" rel="noopener" class="contact__link"><span data-i18n="contact.cv">Currículo</span><i class="arrow">↗</i></a>
+          <a data-link="cv" href="cv.html" class="contact__link"><span data-i18n="contact.cv">Currículo</span><i class="arrow">↗</i></a>
         </div>
         <button type="button" class="copy reveal" id="copyEmail"><span id="copyLabel" data-i18n="contact.copy">Copiar e-mail</span> · <span class="copy__addr"></span></button>
       </div>

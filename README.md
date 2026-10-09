@@ -14,7 +14,7 @@ assets/js/i18n.js     TODOS os textos, nos 3 idiomas (pt, en, es)
 assets/js/main.js     interações, troca de idioma e links (e-mail, LinkedIn, CV, WhatsApp, cases)
 assets/css/style.css  visual (cores no topo do arquivo, em :root)
 assets/img/           foto, logos dos clientes, favicon e imagem de compartilhamento
-assets/video/         vídeos dos cases
+assets/js/motion.js   animações dos cases (textos em i18n.js, em projects.items[].motion)
 mapa_cenario*.html    mapas interativos de cenários (arquivos anteriores, mantidos)
 ```
 

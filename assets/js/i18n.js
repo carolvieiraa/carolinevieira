@@ -67,7 +67,7 @@ window.I18N = {
     projects: {
       eyebrow: "Projetos estratégicos",
       title: "Cases <em>selecionados</em>.",
-      labels: { challenge: "O desafio", contributed: "Como contribuí", how: "Como fiz", results: "Resultados", viewCase: "Ver case completo", note: "Dashboard interativo do case (em português)", videoNote: "" },
+      labels: { challenge: "O desafio", contributed: "Como contribuí", how: "Como fiz", results: "Resultados", viewCase: "Ver case completo", note: "Dashboard interativo do case (em português)" },
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Varejo farma",
@@ -243,7 +243,7 @@ window.I18N = {
     projects: {
       eyebrow: "Strategic projects",
       title: "Selected <em>cases</em>.",
-      labels: { challenge: "The challenge", contributed: "My contribution", how: "How I did it", results: "Results", viewCase: "View full case", note: "Interactive case dashboard (in Portuguese)", videoNote: "Original interface in Portuguese" },
+      labels: { challenge: "The challenge", contributed: "My contribution", how: "How I did it", results: "Results", viewCase: "View full case", note: "Interactive case dashboard (in Portuguese)" },
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Pharma retail",
@@ -419,7 +419,7 @@ window.I18N = {
     projects: {
       eyebrow: "Proyectos estratégicos",
       title: "Casos <em>seleccionados</em>.",
-      labels: { challenge: "El desafío", contributed: "Cómo contribuí", how: "Cómo lo hice", results: "Resultados", viewCase: "Ver caso completo", note: "Dashboard interactivo del caso (en portugués)", videoNote: "Interfaz original en portugués" },
+      labels: { challenge: "El desafío", contributed: "Cómo contribuí", how: "Cómo lo hice", results: "Resultados", viewCase: "Ver caso completo", note: "Dashboard interactivo del caso (en portugués)" },
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Retail farmacéutico",

@@ -111,7 +111,7 @@ window.I18N = {
         { name: "Marcy Reinert", role: "Tech Lead", company: "Performa IT", quote: "Entrega com visão estratégica, domínio técnico e espírito de liderança." },
         { name: "Rodrigo Cheida", role: "Business Strategist", company: "Compass UOL", quote: "A Carol é uma Service Designer nata, com visão estratégica de negócio e excelente capacidade de consolidar insights." },
         { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Comprometida, ética e excelente em pesquisas centradas no usuário, sempre buscando aprofundar o entendimento dos problemas." },
-        { name: "Camila Falabella", role: "", company: "", quote: "Fiquei impressionada com a Carol: ela mapeia jornadas complexas a partir dos primeiros dados, ainda superficiais, e sabe exatamente como proceder e quais ferramentas e métodos usar conforme a necessidade de cada projeto." }
+        { name: "Camila Falabella", role: "Business & Service Designer", company: "", quote: "Fiquei impressionada com a Carol: ela mapeia jornadas complexas a partir dos primeiros dados, ainda superficiais, e sabe exatamente como proceder e quais ferramentas e métodos usar conforme a necessidade de cada projeto." }
       ]
     },
     contact: {
@@ -235,7 +235,7 @@ window.I18N = {
         { name: "Marcy Reinert", role: "Tech Lead", company: "Performa IT", quote: "She delivers with strategic vision, technical mastery and a true leadership spirit." },
         { name: "Rodrigo Cheida", role: "Business Strategist", company: "Compass UOL", quote: "Carol is a natural-born Service Designer, with a strategic business vision and an excellent ability to consolidate insights." },
         { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Committed, ethical and excellent at user-centered research, always looking to deepen the understanding of problems." },
-        { name: "Camila Falabella", role: "", company: "", quote: "Carol impressed me: she maps complex journeys from the very first, still superficial data, and knows exactly how to proceed and which tools and methods to use for each project's needs." }
+        { name: "Camila Falabella", role: "Business & Service Designer", company: "", quote: "Carol impressed me: she maps complex journeys from the very first, still superficial data, and knows exactly how to proceed and which tools and methods to use for each project's needs." }
       ]
     },
     contact: {
@@ -359,7 +359,7 @@ window.I18N = {
         { name: "Marcy Reinert", role: "Tech Lead", company: "Performa IT", quote: "Entrega con visión estratégica, dominio técnico y espíritu de liderazgo." },
         { name: "Rodrigo Cheida", role: "Business Strategist", company: "Compass UOL", quote: "Carol es una Service Designer nata, con visión estratégica de negocio y una excelente capacidad para consolidar insights." },
         { name: "Flavia de Castro", role: "Delivery Manager", company: "BRQ", quote: "Comprometida, ética y excelente en investigaciones centradas en el usuario, siempre buscando profundizar la comprensión de los problemas." },
-        { name: "Camila Falabella", role: "", company: "", quote: "Carol me impresionó: mapea recorridos complejos a partir de los primeros datos, aún superficiales, y sabe exactamente cómo proceder y qué herramientas y métodos usar según la necesidad de cada proyecto." }
+        { name: "Camila Falabella", role: "Business & Service Designer", company: "", quote: "Carol me impresionó: mapea recorridos complejos a partir de los primeros datos, aún superficiales, y sabe exactamente cómo proceder y qué herramientas y métodos usar según la necesidad de cada proyecto." }
       ]
     },
     contact: {

@@ -71,6 +71,23 @@ window.I18N = {
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Varejo farma",
+          motion: {
+            kicker: "App de varejo farmacêutico",
+            chapters: ["O sinal","Reenquadre","Método","Roadmap"],
+            reviews: ["app trava toda hora","não encontro o remédio","demora pra carregar","cadê meu pedido?","muito lento","não acha na busca","péssimo pra usar","não carrega","confuso demais","perdi o carrinho"],
+            bigNumber: "14.000",
+            bigLabel: "avaliações analisadas",
+            insight: "Todo mundo via o mesmo problema.",
+            question: "E se o app não tivesse um problema de performance — e sim um problema de *propósito?*",
+            from: "consertar bugs",
+            to: "redesenhar a proposta de valor",
+            mapLabel: "+70 funcionalidades mapeadas",
+            mapTitle: "do caos à estrutura",
+            horizons: [["Agora","Corrigir & estabilizar"],["Próximo","Reorganizar a jornada"],["Depois","Redesenhar o propósito"]],
+            roadmapLabel: "Roadmap",
+            kpis: [["+18%","conversão"],["+27%","retenção"]],
+            closing: "De “consertar o app” para *“redesenhar por que ele existe”.*"
+          },
           title: "Redesenhando a jornada digital do aplicativo",
           tags: ["Business Design", "Product Strategy", "Future Thinking"],
           challenge: "Como transformar o app na “estrela digital” da companhia, unindo a jornada transacional à saúde preventiva para impulsionar vendas e fidelização?",
@@ -195,6 +212,23 @@ window.I18N = {
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Pharma retail",
+          motion: {
+            kicker: "Pharma retail app",
+            chapters: ["The signal","Reframe","Method","Roadmap"],
+            reviews: ["app freezes all the time","can't find my medicine","takes forever to load","where's my order?","so slow","search finds nothing","awful to use","won't load","way too confusing","lost my cart"],
+            bigNumber: "14,000",
+            bigLabel: "reviews analyzed",
+            insight: "Everyone saw the same problem.",
+            question: "What if the app didn't have a performance problem — but a *purpose problem?*",
+            from: "fixing bugs",
+            to: "redesigning the value proposition",
+            mapLabel: "70+ features mapped",
+            mapTitle: "from chaos to structure",
+            horizons: [["Now","Fix & stabilize"],["Next","Reorganize the journey"],["Later","Redesign the purpose"]],
+            roadmapLabel: "Roadmap",
+            kpis: [["+18%","conversion"],["+27%","retention"]],
+            closing: "From “fixing the app” to *“redesigning why it exists”.*"
+          },
           title: "Redesigning the app's digital journey",
           tags: ["Business Design", "Product Strategy", "Future Thinking"],
           challenge: "How do we turn the app into the company's “digital star”, bringing together the transactional journey and preventive health to boost sales and loyalty?",
@@ -319,6 +353,23 @@ window.I18N = {
       items: [
         {
           id: "pague-menos", client: "Pague Menos", year: "Retail farmacéutico",
+          motion: {
+            kicker: "App de retail farmacéutico",
+            chapters: ["La señal","Reencuadre","Método","Roadmap"],
+            reviews: ["la app se traba todo el tiempo","no encuentro el remedio","tarda mucho en cargar","¿dónde está mi pedido?","muy lenta","la búsqueda no encuentra nada","pésima para usar","no carga","demasiado confusa","perdí el carrito"],
+            bigNumber: "14.000",
+            bigLabel: "reseñas analizadas",
+            insight: "Todos veían el mismo problema.",
+            question: "¿Y si la app no tuviera un problema de rendimiento — sino un problema de *propósito?*",
+            from: "corregir bugs",
+            to: "rediseñar la propuesta de valor",
+            mapLabel: "+70 funcionalidades mapeadas",
+            mapTitle: "del caos a la estructura",
+            horizons: [["Ahora","Corregir y estabilizar"],["Próximo","Reorganizar el recorrido"],["Después","Rediseñar el propósito"]],
+            roadmapLabel: "Roadmap",
+            kpis: [["+18%","conversión"],["+27%","retención"]],
+            closing: "De “arreglar la app” a *“rediseñar por qué existe”.*"
+          },
           title: "Rediseñando el recorrido digital de la app",
           tags: ["Business Design", "Product Strategy", "Future Thinking"],
           challenge: "¿Cómo convertir la app en la “estrella digital” de la compañía, uniendo el recorrido transaccional con la salud preventiva para impulsar ventas y fidelización?",

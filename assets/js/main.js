@@ -36,6 +36,7 @@
   let lang = "pt";
   let t = I18N.pt;
   let activePhase = 0;
+  let motions = [];
 
   /* ---------- Idioma ---------- */
   function storageGet(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
@@ -148,13 +149,15 @@
   function renderProjects() {
     const L = t.projects.labels;
     videoObserver.disconnect();
+    motions.forEach((m) => m.destroy());
+    motions = [];
     const ownVideo = (id) => (VIDEO_LANGS[id] || []).includes(lang);
     $("#projectsList").innerHTML = t.projects.items.map((p, i) => `
       <article class="case reveal" id="case-${p.id}">
         <div class="case__media">
-          <div class="phone">
+          <div class="phone">${p.motion ? `<div data-motion="${i}"></div>` : `
             <video src="assets/video/${ownVideo(p.id) ? `${p.id}.${lang}` : p.id}.mp4" muted loop playsinline preload="none" aria-hidden="true"></video>
-            ${L.videoNote && !ownVideo(p.id) ? `<span class="phone__note">${esc(L.videoNote)}</span>` : ""}
+            ${L.videoNote && !ownVideo(p.id) ? `<span class="phone__note">${esc(L.videoNote)}</span>` : ""}`}
           </div>
           <span class="case__index">0${i + 1}</span>
         </div>
@@ -184,6 +187,11 @@
       </article>`).join("");
 
     $$("#projectsList .case video").forEach((v) => videoObserver.observe(v));
+    $$("#projectsList [data-motion]").forEach((el) => {
+      el.motion = CaseMotion(el, t.projects.items[+el.dataset.motion].motion);
+      motions.push(el.motion);
+      videoObserver.observe(el);
+    });
   }
 
   function renderTestimonials() {
@@ -230,11 +238,14 @@
     requestAnimationFrame(step);
   }
 
+  // vídeos e motions só rodam quando estão na tela
   const videoObserver = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
-      const v = e.target;
-      if (e.isIntersecting && !reduceMotion) { v.preload = "auto"; v.play().catch(() => {}); }
-      else v.pause();
+      const v = e.target.motion || e.target;
+      if (e.isIntersecting && !(reduceMotion && !e.target.motion)) {
+        if (!e.target.motion) v.preload = "auto";
+        Promise.resolve(v.play()).catch(() => {});
+      } else v.pause();
     });
   }, { threshold: 0.35 });
 

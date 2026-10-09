@@ -37,8 +37,6 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 /* Folha */
 .sheet { display: grid; grid-template-columns: 290px 1fr; max-width: 1040px; margin: clamp(16px, 4vw, 48px) auto; background: var(--paper); border-radius: 18px; overflow: hidden; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .8); }
 .side { background: var(--sand-soft); padding: 40px 30px; display: flex; flex-direction: column; gap: 28px; }
-.side__mark { font-size: 30px; font-weight: 700; letter-spacing: -0.04em; color: var(--accent); line-height: 1; }
-.side__mark em { font-size: 36px; margin-left: 1px; }
 .main { padding: 44px 48px; display: flex; flex-direction: column; gap: 30px; }
 
 h2 { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
@@ -73,7 +71,7 @@ h2 { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: u
 .edu li { display: flex; justify-content: space-between; gap: 12px; padding: 4px 0; border-bottom: 1px dashed var(--line); }
 .edu small { color: var(--text-2); white-space: nowrap; }
 
-@media (max-width: 820px) {
+@media screen and (max-width: 820px) {
   .sheet { grid-template-columns: 1fr; border-radius: 14px; margin: 16px; }
   .main { padding: 32px 22px; order: -1; }
   .side { padding: 28px 22px; }
@@ -83,17 +81,27 @@ h2 { font-size: 11px; font-weight: 600; letter-spacing: .18em; text-transform: u
 }
 
 /* Impressão / Salvar como PDF */
+/* o currículo cabe em 1 página A4; a coluna areia vai até o fim da folha */
 @page { size: A4; margin: 0; }
 @media print {
-  body { background: #fff; font-size: 10.5px; }
+  html, body { background: #fff; }
+  body { font-size: 10px; line-height: 1.45; }
   .bar { display: none; }
-  .sheet { margin: 0; max-width: none; min-height: 297mm; border-radius: 0; box-shadow: none; grid-template-columns: 62mm 1fr; }
+  .sheet { margin: 0; max-width: none; min-height: 297mm; border-radius: 0; box-shadow: none; grid-template-columns: 60mm 1fr; overflow: visible; }
   .side, .tags li { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .side { padding: 14mm 8mm; gap: 18px; }
-  .main { padding: 14mm 12mm 12mm 10mm; gap: 18px; }
-  .hero h1 { font-size: 36px; }
-  .hero p, .lead { font-size: 11.5px; }
-  .job__head h3 { font-size: 12.5px; }
-  .job, .two > div { break-inside: avoid; }
+  .side { padding: 12mm 7mm 8mm; gap: 14px; }
+  .main { padding: 12mm 12mm 6mm 9mm; gap: 14px; }
+  h2 { font-size: 8.5px; margin-bottom: 7px; }
+  .hero h1 { font-size: 32px; margin-bottom: 6px; }
+  .hero p, .lead { font-size: 10.5px; }
+  .tags li { font-size: 9px; padding: 2px 8px; }
+  .job + .job { margin-top: 12px; }
+  .job__head { gap: 0 12px; margin-bottom: 4px; }
+  .job__head h3 { font-size: 11.5px; }
+  .job__head p { font-size: 9px; }
+  .job__sub { font-size: 9px; margin: 8px 0 3px; }
+  .bullets li { padding: 1.5px 0 1.5px 15px; }
+  .bullets li, .two > div, .job__head { break-inside: avoid; }
+  .two { gap: 20px; }
   a { text-decoration: none; }
 }

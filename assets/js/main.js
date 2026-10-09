@@ -188,7 +188,8 @@
 
     $$("#projectsList .case video").forEach((v) => videoObserver.observe(v));
     $$("#projectsList [data-motion]").forEach((el) => {
-      el.motion = CaseMotion(el, t.projects.items[+el.dataset.motion].motion);
+      const p = t.projects.items[+el.dataset.motion];
+      el.motion = CaseMotion(el, p.motion, p.id);
       motions.push(el.motion);
       videoObserver.observe(el);
     });

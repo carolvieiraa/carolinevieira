@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Design System — Caroline Vieira</title>
+  <link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="tokens.css">
+  <link rel="stylesheet" href="components.css">
+  <style>
+    /* estilos só da vitrine (não fazem parte do DS) */
+    .sg-head { position: sticky; top: 0; z-index: var(--z-nav); display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); flex-wrap: wrap; padding: var(--space-4) var(--gutter); background: color-mix(in srgb, var(--color-bg) 85%, transparent); backdrop-filter: blur(12px); border-bottom: 1px solid var(--color-border); }
+    .sg-head p { margin: 0; font-weight: 600; }
+    .sg-head small { font-weight: 400; color: var(--color-text-muted); }
+    .sg-block { padding: var(--space-16) 0; border-bottom: 1px solid var(--color-border); }
+    .sg-block > .ds-container > h2 { margin: 0 0 var(--space-2); font-size: var(--text-h3); font-weight: 500; letter-spacing: -0.02em; }
+    .sg-block > .ds-container > p { margin: 0 0 var(--space-8); color: var(--color-text-muted); max-width: 70ch; }
+    .sg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(var(--min, 220px), 1fr)); gap: var(--space-4); }
+    .sg-cell { display: flex; flex-direction: column; gap: var(--space-3); align-items: flex-start; }
+    .sg-cell > small { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-text-muted); }
+    .sg-swatch { width: 100%; height: 72px; border-radius: var(--radius-md); border: 1px solid var(--color-border); }
+    .sg-pair { display: flex; justify-content: space-between; align-items: center; gap: var(--space-3); padding: var(--space-4); border-radius: var(--radius-md); border: 1px solid var(--color-border); font-size: 15px; }
+    .sg-pair code { font-size: 12px; color: var(--color-text-muted); }
+    .sg-ratio { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+    .sg-ratio.is-fail { color: var(--color-danger); }
+    .sg-type { display: grid; grid-template-columns: 160px 1fr; gap: var(--space-4); align-items: baseline; padding: var(--space-3) 0; border-bottom: 1px solid var(--color-border); }
+    .sg-type code { font-size: 12px; color: var(--color-text-muted); }
+    .sg-space { height: 16px; background: var(--color-action-bg); border-radius: 2px; }
+    .sg-radius { width: 96px; height: 64px; background: var(--color-surface-hover); border: 1px solid var(--color-border-strong); }
+    .sg-motion { width: 40px; height: 40px; border-radius: 50%; background: var(--color-action-bg); transition: transform var(--d) var(--ease-out); }
+    .sg-motion-track:hover .sg-motion { transform: translateX(180px); }
+    .sg-motion-track { width: 240px; padding: 6px; border-radius: 99px; border: 1px dashed var(--color-border-strong); }
+    @media (max-width: 640px) { .sg-type { grid-template-columns: 1fr; gap: 4px; } }
+  </style>
+</head>
+<body class="ds">
+  <header class="sg-head">
+    <p>Design System · Caroline Vieira <small>v0.1.0 — base para o novo portfólio</small></p>
+    <div class="ds-row">
+      <span class="ds-label">Tema</span>
+      <div class="ds-segmented" role="group" aria-label="Tema da vitrine" id="themeSwitch">
+        <button type="button" data-theme-set="dark" aria-pressed="true">Escuro</button>
+        <button type="button" data-theme-set="light" aria-pressed="false">Areia</button>
+        <button type="button" data-theme-set="navy" aria-pressed="false">Marinho</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ================= Foundations ================= -->
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Cor — papéis semânticos</h2>
+        <p>Componentes usam só estes papéis; cada tema redefine os valores. O contraste abaixo é medido ao vivo no tema selecionado (AA: 4,5 para texto, 3 para contorno de controle).</p>
+        <div class="sg-grid" id="swatches" style="--min:150px"></div>
+        <div class="sg-grid" id="pairs" style="--min:300px; margin-top: var(--space-8)"></div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Tipografia</h2>
+        <p>Inter Tight para texto e interface; Instrument Serif itálico para a palavra que carrega a ideia — uma ênfase por frase.</p>
+        <div class="sg-type"><code>--text-hero</code><span style="font-size:var(--text-hero);line-height:.9;letter-spacing:-0.05em">Caroline <em>Vieira</em></span></div>
+        <div class="sg-type"><code>--text-display · .ds-display</code><h3 class="ds-display">O que eu faço, <em>e por quê</em>.</h3></div>
+        <div class="sg-type"><code>--text-h2 · .ds-h2</code><p class="ds-h2">Redesenhando a jornada digital do aplicativo</p></div>
+        <div class="sg-type"><code>--text-h3 · .ds-h3</code><p class="ds-h3">Resultados que vão além da entrega.</p></div>
+        <div class="sg-type"><code>.ds-statement</code><p class="ds-statement">Como transformar o app na “estrela digital” da companhia?</p></div>
+        <div class="sg-type"><code>--text-lead · .ds-lead</code><p class="ds-lead">Sou movida pela curiosidade de entender pessoas antes de propor soluções.</p></div>
+        <div class="sg-type"><code>--text-base · .ds-text</code><p class="ds-text">Combino pesquisa, dados e visão de negócio para transformar problemas complexos em jornadas e estratégias de alto impacto.</p></div>
+        <div class="sg-type"><code>--text-xs · .ds-eyebrow</code><p class="ds-eyebrow">Projetos estratégicos</p></div>
+        <div class="sg-type"><code>--text-xs · .ds-label</code><span class="ds-label">Avaliações analisadas</span></div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Espaço, forma e movimento</h2>
+        <p>Escala de espaço em múltiplos de 4. Raio pequeno para imagem editorial, médio/grande para superfícies, pílula para ações.</p>
+        <div class="sg-grid" style="--min:120px">
+          <div class="sg-cell"><small>space-2 · 8</small><div class="sg-space" style="width:8px"></div></div>
+          <div class="sg-cell"><small>space-4 · 16</small><div class="sg-space" style="width:16px"></div></div>
+          <div class="sg-cell"><small>space-6 · 24</small><div class="sg-space" style="width:24px"></div></div>
+          <div class="sg-cell"><small>space-8 · 32</small><div class="sg-space" style="width:32px"></div></div>
+          <div class="sg-cell"><small>space-12 · 48</small><div class="sg-space" style="width:48px"></div></div>
+          <div class="sg-cell"><small>space-16 · 64</small><div class="sg-space" style="width:64px"></div></div>
+          <div class="sg-cell"><small>space-20 · 80</small><div class="sg-space" style="width:80px"></div></div>
+        </div>
+        <div class="sg-grid" style="--min:120px; margin-top: var(--space-8)">
+          <div class="sg-cell"><small>radius-sm</small><div class="sg-radius" style="border-radius:var(--radius-sm)"></div></div>
+          <div class="sg-cell"><small>radius-md</small><div class="sg-radius" style="border-radius:var(--radius-md)"></div></div>
+          <div class="sg-cell"><small>radius-lg</small><div class="sg-radius" style="border-radius:var(--radius-lg)"></div></div>
+          <div class="sg-cell"><small>radius-xl</small><div class="sg-radius" style="border-radius:var(--radius-xl)"></div></div>
+          <div class="sg-cell"><small>radius-pill</small><div class="sg-radius" style="border-radius:var(--radius-pill)"></div></div>
+        </div>
+        <div class="sg-grid" style="--min:260px; margin-top: var(--space-8)">
+          <div class="sg-cell"><small>duration-fast · 250ms (passe o mouse)</small><div class="sg-motion-track"><div class="sg-motion" style="--d:var(--duration-fast)"></div></div></div>
+          <div class="sg-cell"><small>duration-base · 500ms</small><div class="sg-motion-track"><div class="sg-motion" style="--d:var(--duration-base)"></div></div></div>
+          <div class="sg-cell"><small>duration-slow · 900ms</small><div class="sg-motion-track"><div class="sg-motion" style="--d:var(--duration-slow)"></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= Componentes ================= -->
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Botão</h2>
+        <p>Primário para a ação principal da seção (uma por vez); secundário para alternativas. Hover e foco: passe o mouse ou use Tab.</p>
+        <div class="sg-grid" style="--min:200px">
+          <div class="sg-cell"><small>primário</small><button class="ds-btn" type="button">Ver projetos <i class="ds-btn__icon" aria-hidden="true">↓</i></button></div>
+          <div class="sg-cell"><small>secundário</small><button class="ds-btn ds-btn--secondary" type="button">Vamos conversar <i class="ds-btn__icon" aria-hidden="true">→</i></button></div>
+          <div class="sg-cell"><small>pequeno</small><a class="ds-btn ds-btn--sm" href="#">Acessar CV</a></div>
+          <div class="sg-cell"><small>grande</small><a class="ds-btn ds-btn--lg" href="#">Agendar uma conversa <i class="ds-btn__icon" aria-hidden="true">→</i></a></div>
+          <div class="sg-cell"><small>disabled</small><button class="ds-btn" type="button" disabled>Enviar</button></div>
+          <div class="sg-cell"><small>disabled · secundário</small><button class="ds-btn ds-btn--secondary" type="button" disabled>Enviar</button></div>
+          <div class="sg-cell"><small>loading (aria-busy)</small><button class="ds-btn" type="button" aria-busy="true">Enviando</button></div>
+          <div class="sg-cell"><small>loading · clique para alternar</small><button class="ds-btn ds-btn--secondary" type="button" id="busyDemo">Baixar PDF <i class="ds-btn__icon" aria-hidden="true">↓</i></button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Links, chips e status</h2>
+        <p>Chips são rótulos estáticos — sem hover, porque não fazem nada. Status nunca depende só da cor: tem texto junto.</p>
+        <div class="ds-stack" style="--stack-gap: var(--space-6)">
+          <p class="ds-text">Texto corrido com <a class="ds-link" href="#">um link sublinhado</a> no meio da frase.</p>
+          <div class="ds-row"><a class="ds-link-pill" href="#">E-mail <i aria-hidden="true">↗</i></a><a class="ds-link-pill" href="#">LinkedIn <i aria-hidden="true">↗</i></a></div>
+          <ul class="ds-chips"><li class="ds-chip">Business Design</li><li class="ds-chip">Product Strategy</li><li class="ds-chip">Business Agility Transformation em 10 países da América Latina</li></ul>
+          <div class="ds-row"><span class="ds-chip ds-chip--accent">MBA Big Data · ESPM</span><span class="ds-chip ds-chip--filled">Pesquisa</span></div>
+          <div class="ds-row"><span class="ds-badge"><span class="ds-badge__dot" aria-hidden="true"></span>Disponível para projetos</span><span class="ds-feedback" role="status" id="copyStatus">Copiar e-mail</span><button class="ds-btn ds-btn--sm ds-btn--secondary" type="button" id="copyDemo">Simular cópia</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Controle segmentado e abas</h2>
+        <p>Segmentado para alternar um modo (idioma): botões com aria-pressed. Abas para trocar conteúdo no mesmo lugar: setas ← → movem entre abas.</p>
+        <div class="ds-stack" style="--stack-gap: var(--space-8)">
+          <div class="ds-row"><div class="ds-segmented" role="group" aria-label="Idioma" data-demo-seg><button type="button" aria-pressed="true">PT</button><button type="button" aria-pressed="false">EN</button><button type="button" aria-pressed="false">ES</button></div>
+            <div class="ds-segmented" role="group" aria-label="Idioma (com opção indisponível)"><button type="button" aria-pressed="true">PT</button><button type="button" aria-pressed="false">EN</button><button type="button" aria-pressed="false" disabled>FR</button></div></div>
+          <div>
+            <div class="ds-tabs" role="tablist" aria-label="Detalhes do case" data-demo-tabs>
+              <button class="ds-tab" role="tab" id="t1" aria-selected="true" aria-controls="p1">Resultados</button>
+              <button class="ds-tab" role="tab" id="t2" aria-selected="false" aria-controls="p2" tabindex="-1">Como fiz</button>
+              <button class="ds-tab" role="tab" id="t3" aria-selected="false" aria-controls="p3" tabindex="-1">Como contribuí</button>
+            </div>
+            <div class="ds-tabpanel" role="tabpanel" id="p1" aria-labelledby="t1"><ul class="ds-list"><li>Causa raiz técnica de R$ 480 mil em perdas identificada e priorizada.</li><li>Dashboard adotado como referência interna pela operação do cliente.</li></ul></div>
+            <div class="ds-tabpanel" role="tabpanel" id="p2" aria-labelledby="t2" hidden><ul class="ds-list"><li>Análise de +14 mil avaliações de usuários e 32 entrevistas.</li></ul></div>
+            <div class="ds-tabpanel" role="tabpanel" id="p3" aria-labelledby="t3" hidden><ul class="ds-list"><li>Business Design · Future Thinking · De-risking</li></ul></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Cards, números e depoimentos</h2>
+        <p>Card estático por padrão. A variante link só existe quando o card inteiro leva a algum lugar — é a única que reage ao mouse.</p>
+        <div class="sg-grid" style="--min:280px">
+          <article class="ds-card"><span class="ds-card__num">01</span><h3 class="ds-card__title">Discovery &amp; Research</h3><p class="ds-card__statement">Entendo problemas antes de propor soluções.</p><ul class="ds-chips"><li class="ds-chip">Entrevistas</li><li class="ds-chip">Benchmarking</li></ul></article>
+          <a class="ds-card ds-card--link" href="#"><span class="ds-card__num">02</span><h3 class="ds-card__title">Case Novo Nordisk ↗</h3><p class="ds-card__statement">Card que é um link inteiro: hover e foco.</p></a>
+          <article class="ds-card"><span class="ds-card__num">03</span><h3 class="ds-card__title">Transformação organizacional multinacional com títulos excepcionalmente longos</h3><p class="ds-card__statement">Overflow: o título quebra em linhas, nunca corta.</p></article>
+        </div>
+        <div class="sg-grid" style="--min:200px; margin-top: var(--space-8)">
+          <div class="ds-stat"><p class="ds-stat__value">R$ 480 mil</p><p class="ds-stat__label">Riscos financeiros identificados</p><p class="ds-stat__source">Pague Menos</p></div>
+          <div class="ds-stat"><p class="ds-stat__value">+60%</p><p class="ds-stat__label">Acima da meta nacional</p><p class="ds-stat__source">Novo Nordisk</p></div>
+          <div class="ds-stat" aria-busy="true"><div class="ds-skeleton" style="height:48px;width:70%"></div><div class="ds-skeleton" style="height:14px;width:90%"></div><div class="ds-skeleton" style="height:10px;width:40%"></div><span class="ds-sr">Carregando</span></div>
+        </div>
+        <div class="sg-grid" style="--min:320px; margin-top: var(--space-8)">
+          <figure class="ds-quote"><span class="ds-quote__mark" aria-hidden="true">“</span><blockquote>A Carol é uma Service Designer nata, com visão estratégica de negócio.</blockquote><figcaption><span class="ds-avatar" aria-hidden="true">RC</span><span><b>Rodrigo Cheida</b><small>Business Strategist · Compass UOL</small></span></figcaption></figure>
+          <div class="ds-empty"><span class="ds-label">Vazio</span><p class="ds-text">Ainda não há depoimentos neste idioma.</p><a class="ds-link" href="#">Ver em português</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Etapas (processo)</h2>
+        <p>Lista de etapas navegável: clique ou use ← → dentro do grupo. Etapas anteriores ficam marcadas como concluídas.</p>
+        <div class="ds-steps" role="tablist" aria-label="Processo" style="--steps:4" data-demo-steps>
+          <button class="ds-step is-done" role="tab" aria-selected="false" tabindex="-1"><span class="ds-step__dot">1</span><span class="ds-step__name">Imersão</span></button>
+          <button class="ds-step" role="tab" aria-selected="true"><span class="ds-step__dot">2</span><span class="ds-step__name">Alinhamento</span></button>
+          <button class="ds-step" role="tab" aria-selected="false" tabindex="-1"><span class="ds-step__dot">3</span><span class="ds-step__name">Entrega</span></button>
+          <button class="ds-step" role="tab" aria-selected="false" tabindex="-1"><span class="ds-step__dot">4</span><span class="ds-step__name">Métricas</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Campo de formulário <span class="ds-chip ds-chip--accent" style="vertical-align:middle">experimental</span></h2>
+        <p>O site atual não tem formulário; este padrão existe para o novo portfólio (ex.: contato). Erro sempre com mensagem associada ao campo, nunca só a borda vermelha.</p>
+        <div class="sg-grid" style="--min:260px">
+          <div class="ds-field"><label class="ds-field__label" for="f1">Nome</label><input class="ds-input" id="f1" placeholder="Como posso te chamar?"><p class="ds-field__hint">Default · hover · foco</p></div>
+          <div class="ds-field"><label class="ds-field__label" for="f2">E-mail</label><input class="ds-input" id="f2" value="ana@" aria-invalid="true" aria-describedby="f2e"><p class="ds-field__error" id="f2e">Confira o e-mail: falta o domínio, como @empresa.com.</p></div>
+          <div class="ds-field"><label class="ds-field__label" for="f3">Empresa</label><input class="ds-input" id="f3" value="Performa_IT" disabled><p class="ds-field__hint">Disabled</p></div>
+          <div class="ds-field"><label class="ds-field__label" for="f4">Assunto</label><input class="ds-input" id="f4" value="Proposta de projeto" readonly><p class="ds-field__hint">Somente leitura</p></div>
+          <div class="ds-field" style="grid-column: 1 / -1"><label class="ds-field__label" for="f5">Mensagem</label><textarea class="ds-input" id="f5" placeholder="Conte um pouco do seu desafio"></textarea></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-block">
+      <div class="ds-container">
+        <h2>Navegação e mídia</h2>
+        <p>Menu centralizado sem logotipo (o nome é a marca). Retrato editorial e moldura de celular para os motions dos cases.</p>
+        <nav class="ds-nav ds-nav--scrolled" aria-label="Exemplo de navegação" style="border-radius: var(--radius-lg)">
+          <ul class="ds-nav__links"><li><a href="#" aria-current="true">Sobre</a></li><li><a href="#">Projetos</a></li><li><a href="#">Contato</a></li></ul>
+          <div class="ds-nav__end"><a class="ds-btn ds-btn--sm" href="#">Acessar CV</a></div>
+        </nav>
+        <div class="sg-grid" style="--min:240px; margin-top: var(--space-10); align-items: start">
+          <figure class="ds-portrait" style="max-width:280px"><img src="../assets/img/caroline.jpg" alt="Caroline Vieira"></figure>
+          <div class="ds-phone" style="max-width:240px"><div style="background: radial-gradient(120% 70% at 50% 0%, var(--navy-700), var(--navy-800) 45%, var(--navy-950)); display:grid; place-items:center; color: var(--cream-50); font-family: var(--font-serif); font-style: italic; font-size: 22px">motion do case</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+  (function () {
+    "use strict";
+    const $$ = (s, el = document) => [...el.querySelectorAll(s)];
+
+    // tema da vitrine
+    $$("[data-theme-set]").forEach((b) => b.addEventListener("click", () => {
+      document.body.dataset.theme = b.dataset.themeSet;
+      $$("[data-theme-set]").forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      measure();
+    }));
+
+    // controles segmentados
+    $$("[data-demo-seg]").forEach((g) => g.addEventListener("click", (e) => {
+      const b = e.target.closest("button:not(:disabled)"); if (!b) return;
+      $$("button", g).forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+    }));
+
+    // abas e etapas: clique + setas, foco itinerante (roving tabindex)
+    function rove(list, item, onSelect) {
+      const items = () => $$(item, list);
+      const select = (el) => {
+        items().forEach((x) => { const on = x === el; x.setAttribute("aria-selected", String(on)); x.tabIndex = on ? 0 : -1; });
+        onSelect && onSelect(el, items().indexOf(el));
+      };
+      list.addEventListener("click", (e) => { const el = e.target.closest(item); if (el) select(el); });
+      list.addEventListener("keydown", (e) => {
+        const all = items(), i = all.indexOf(document.activeElement);
+        if (i < 0) return;
+        const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: all.length - 1 }[e.key];
+        if (next === undefined) return;
+        e.preventDefault();
+        const el = all[(next + all.length) % all.length]; select(el); el.focus();
+      });
+    }
+    $$("[data-demo-tabs]").forEach((l) => rove(l, ".ds-tab", (el) => {
+      $$(".ds-tabpanel", l.parentElement).forEach((p) => { p.hidden = p.id !== el.getAttribute("aria-controls"); });
+    }));
+    $$("[data-demo-steps]").forEach((l) => rove(l, ".ds-step", (el, i) => {
+      $$(".ds-step", l).forEach((x, j) => x.classList.toggle("is-done", j < i));
+    }));
+
+    // loading e feedback
+    document.getElementById("busyDemo").addEventListener("click", (e) => {
+      const b = e.currentTarget; b.setAttribute("aria-busy", String(b.getAttribute("aria-busy") !== "true"));
+    });
+    document.getElementById("copyDemo").addEventListener("click", () => {
+      const s = document.getElementById("copyStatus");
+      s.textContent = "E-mail copiado"; s.classList.add("is-success");
+      setTimeout(() => { s.textContent = "Copiar e-mail"; s.classList.remove("is-success"); }, 2000);
+    });
+
+    // cores: amostras e contraste medido no tema atual
+    const ROLES = ["bg", "bg-raised", "surface", "text", "text-muted", "text-accent", "border", "border-strong", "action-bg", "action-fg", "focus", "success", "danger"];
+    const PAIRS = [
+      ["text", "bg", 4.5], ["text-muted", "bg", 4.5], ["text-accent", "bg", 4.5], ["text", "bg-raised", 4.5],
+      ["text-muted", "bg-raised", 4.5], ["text-accent", "bg-raised", 4.5], ["action-fg", "action-bg", 4.5],
+      ["danger", "bg", 4.5], ["success", "bg", 4.5], ["border-strong", "bg", 3], ["focus", "bg", 3]
+    ];
+    const probe = document.createElement("span"); document.body.appendChild(probe);
+    const rgba = (role) => { probe.style.color = `var(--color-${role})`; return getComputedStyle(probe).color.match(/[\d.]+/g).map(Number); };
+    const over = (fg, bg) => { const a = fg[3] ?? 1; return [0, 1, 2].map((i) => fg[i] * a + bg[i] * (1 - a)); };
+    const lum = (c) => { const [r, g, b] = c.map((v) => { v /= 255; return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4; }); return 0.2126 * r + 0.7152 * g + 0.0722 * b; };
+    const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + 0.05) / (y + 0.05); };
+    function measure() {
+      const page = rgba("bg");
+      document.getElementById("swatches").innerHTML = ROLES.map((r) =>
+        `<div class="sg-cell"><div class="sg-swatch" style="background:var(--color-${r})"></div><small>--color-${r}</small></div>`).join("");
+      window.__contrast = {};
+      document.getElementById("pairs").innerHTML = PAIRS.map(([fg, bg, min]) => {
+        const b = over(rgba(bg), page), f = over(rgba(fg), b), r = ratio(f, b);
+        window.__contrast[fg + "/" + bg] = +r.toFixed(2);
+        return `<div class="sg-pair" style="background:var(--color-${bg});color:var(--color-${fg})"><span>${fg} <code>sobre ${bg}</code></span><span class="sg-ratio${r < min ? " is-fail" : ""}">${r.toFixed(2)} ${r >= min ? "✓" : "✗"}</span></div>`;
+      }).join("");
+    }
+    measure();
+  })();
+  </script>
+</body>
+</html>

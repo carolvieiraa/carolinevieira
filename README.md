@@ -16,6 +16,7 @@ assets/css/style.css  visual (cores no topo do arquivo, em :root)
 assets/img/           foto, logos dos clientes, favicon e imagem de compartilhamento
 assets/js/motion.js   animações dos cases (textos em i18n.js, em projects.items[].motion)
 DESIGN.md             intenção e rationale de design (por que o site é assim)
+design-system/        tokens, componentes e vitrine para prototipar o novo portfólio
 mapa_cenario*.html    mapas interativos de cenários (arquivos anteriores, mantidos)
 ```
 

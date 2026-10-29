@@ -1,0 +1,195 @@
+/* ==========================================================
+   Design System — Caroline Vieira · tokens  (v0.1.0)
+   Fonte da verdade dos valores. Componentes consomem só os
+   tokens semânticos (--color-*, --text-*, --space-*...).
+   Rationale das escolhas: ../DESIGN.md
+   ========================================================== */
+
+:root {
+  /* ---------- Primitivos: cor ---------- */
+  /* neutros quentes (fundo) */
+  --black-950: #0b0b0c;
+  --black-900: #141416;
+  --black-800: #191919;
+  /* creme (texto sobre escuro) */
+  --cream-50: #f3ece7;
+  --white: #ffffff;
+  /* areia */
+  --sand-100: #efe4dc;
+  --sand-300: #d8beaf;
+  --sand-400: #c4a493;
+  --sand-500: #9c7560; /* só decorativo ou texto ≥ 24px sobre claro (3,3:1) */
+  --sand-600: #7a5a48; /* texto de destaque sobre claro (≥ 4,5:1) — v0.1: novo */
+  --sand-700: #5a4a41;
+  --sand-800: #4a3d36;
+  /* pedra (texto secundário) */
+  --stone-400: #a39b95;
+  --stone-600: #5b5450;
+  /* azul-marinho (território dos cases) */
+  --navy-950: #07121f;
+  --navy-900: #0a1a2c;
+  --navy-800: #0e243c;
+  --navy-700: #12365a;
+  --navy-600: #003c64;
+  --navy-500: #1d5a8e;
+  /* status */
+  --green-300: #7fd49b;
+  --green-800: #17552e;
+  --coral-300: #e39a8c; /* v0.1: novo, a validar */
+  --coral-700: #a3402e; /* v0.1: novo, a validar */
+
+  /* ---------- Tipografia ---------- */
+  --font-sans: "Inter Tight", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-serif: "Instrument Serif", "Times New Roman", serif;
+
+  --text-2xs: 11px;                          /* legendas mínimas, nunca texto corrido */
+  --text-xs: 12px;                           /* eyebrow, rótulos em caixa-alta */
+  --text-sm: 14px;                           /* UI: menu, botão pequeno, chips */
+  --text-md: 15px;                           /* UI: botão, rótulos de campo */
+  --text-base: 17px;                         /* texto corrido */
+  --text-lead: clamp(19px, 1.7vw, 23px);     /* parágrafo de abertura */
+  --text-h3: clamp(24px, 2.6vw, 34px);
+  --text-h2: clamp(32px, 3.6vw, 52px);
+  --text-display: clamp(38px, 5.6vw, 76px);  /* título de seção */
+  --text-hero: clamp(64px, 11vw, 168px);     /* nome no hero */
+
+  --leading-tight: 1.02;
+  --leading-snug: 1.2;
+  --leading-normal: 1.6;
+
+  --tracking-display: -0.035em;
+  --tracking-snug: -0.02em;
+  --tracking-normal: 0;
+  --tracking-label: 0.18em;  /* rótulos em caixa-alta */
+  --tracking-wide: 0.24em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---------- Espaço e layout ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-section: clamp(96px, 13vw, 168px);
+  --gutter: clamp(16px, 4vw, 48px);
+  --container: 1240px;
+  --measure: 62ch;           /* largura máxima de texto corrido */
+
+  /* ---------- Forma ---------- */
+  --radius-sm: 6px;          /* retrato, folha do currículo */
+  --radius-md: 14px;
+  --radius-lg: 22px;         /* cards */
+  --radius-xl: 30px;         /* painéis, telas de celular */
+  --radius-section: clamp(28px, 4vw, 56px);
+  --radius-pill: 999px;      /* botões, chips, segmentado */
+  --radius-round: 50%;
+
+  --border-width: 1px;
+  --focus-width: 2px;
+  --focus-offset: 3px;
+
+  --shadow-card: 0 30px 60px -30px rgba(60, 40, 30, .35);
+  --shadow-float: 0 40px 80px -30px rgba(0, 0, 0, .8);
+
+  /* ---------- Movimento ---------- */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.25, 1);
+  --duration-fast: 250ms;    /* cor, hover */
+  --duration-base: 500ms;    /* cards, abas */
+  --duration-slow: 900ms;    /* entrada de conteúdo */
+  --duration-reveal: 1000ms; /* revelação no scroll */
+
+  /* ---------- Camadas ---------- */
+  --z-nav: 100;
+  --z-overlay: 150;
+  --z-toast: 200;
+}
+
+/* ==========================================================
+   Semânticos por tema
+   dark  = padrão do portfólio (preto)
+   light = superfícies areia (seções de habilidades, currículo)
+   navy  = território dos cases e dos dados
+   ========================================================== */
+:root,
+[data-theme="dark"] {
+  --color-bg: var(--black-950);
+  --color-bg-raised: var(--black-900);
+  --color-surface: rgba(243, 236, 231, .06);
+  --color-surface-hover: rgba(243, 236, 231, .1);
+  --color-text: var(--cream-50);
+  --color-text-muted: var(--stone-400);
+  --color-text-accent: var(--sand-300);
+  --color-border: rgba(243, 236, 231, .12);        /* divisória decorativa */
+  --color-border-strong: rgba(243, 236, 231, .45); /* contorno de controle (≥ 3:1) */
+  --color-action-bg: var(--sand-300);
+  --color-action-fg: var(--black-800);
+  --color-action-bg-hover: var(--cream-50);
+  --color-focus: var(--sand-300);
+  --color-success: var(--green-300);
+  --color-danger: var(--coral-300);
+  --color-selection-bg: var(--sand-300);
+  --color-selection-fg: var(--black-800);
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --color-bg: var(--sand-100);
+  --color-bg-raised: var(--white);
+  --color-surface: rgba(25, 25, 25, .04);
+  --color-surface-hover: rgba(25, 25, 25, .07);
+  --color-text: var(--black-800);
+  --color-text-muted: var(--stone-600);
+  --color-text-accent: var(--sand-600);
+  --color-border: rgba(25, 25, 25, .14);
+  --color-border-strong: #857a73;
+  --color-action-bg: var(--black-800);
+  --color-action-fg: var(--cream-50);
+  --color-action-bg-hover: var(--sand-800);
+  --color-focus: var(--sand-800);
+  --color-success: var(--green-800);
+  --color-danger: var(--coral-700);
+  --color-selection-bg: var(--black-800);
+  --color-selection-fg: var(--cream-50);
+  color-scheme: light;
+}
+
+[data-theme="navy"] {
+  --color-bg: var(--navy-800);
+  --color-bg-raised: var(--navy-900);
+  --color-surface: rgba(243, 236, 231, .06);
+  --color-surface-hover: rgba(243, 236, 231, .1);
+  --color-text: var(--cream-50);
+  --color-text-muted: var(--stone-400);
+  --color-text-accent: var(--sand-300);
+  --color-border: rgba(243, 236, 231, .14);
+  --color-border-strong: rgba(243, 236, 231, .5);
+  --color-action-bg: var(--sand-300);
+  --color-action-fg: var(--black-800);
+  --color-action-bg-hover: var(--cream-50);
+  --color-focus: var(--sand-300);
+  --color-success: var(--green-300);
+  --color-danger: var(--coral-300);
+  --color-selection-bg: var(--sand-300);
+  --color-selection-fg: var(--black-800);
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --duration-fast: 1ms;
+    --duration-base: 1ms;
+    --duration-slow: 1ms;
+    --duration-reveal: 1ms;
+  }
+}
